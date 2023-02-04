@@ -75,12 +75,13 @@ fs.appendFile(`${directoryName}/krishna.md`, `${jsonFile.name}`, err => {
     }
 })
 
-// fs.renameSync(`${directoryName}/list.md`, `${directoryName}/data.md`)
+fs.renameSync(`${directoryName}/krishna.md`, `${directoryName}/data.md`)
 
 setTimeout(() => {
     //empty directory before removing
     fs.readdirSync(directoryName).forEach(fileName => {
         console.log('fileName', fileName)
+        // unlink is use to delete the files
         fs.unlinkSync(`${directoryName}/${fileName}`)
     })
 

@@ -15,6 +15,8 @@ readStream.once('data', data => {
     console.log(data)
 })
 
+// readStream.on('')
+
 readStream.on('end', _ => {
     console.log('end reading files', fileTxt.length)
 })
@@ -32,6 +34,6 @@ const readFileStream = fs.createReadStream(filePath, 'utf-8')
 
 writeStream.write("hello df")
 writeStream.write(" world\n")
-
+writeStream.close()
 // process.stdin.pipe(writeStream)
 readFileStream.pipe(writeStream)

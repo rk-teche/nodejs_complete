@@ -32,12 +32,17 @@ console.log('process ==>', process.pid)
 console.log('process ==>', process.version)
 console.log('process ==>', process.argv) //anything we type of run the node file gets added in argv e.g. `node 06_global_object --rk "The Green Chutney"
 
-const [directoryName, fileName, flag1, flag2] = process.argv;
+const [directoryName, fileName, flag1, flag2] = process.argv; // contains arguments of running file
 
-console.log('directoryName', directoryName)
-console.log('fileName', fileName)
+console.log('directoryName', directoryName) // node path
+console.log('fileName', fileName) // cureent file path
 console.log('flag1', flag1)
 console.log('flag2', flag2)
+
+function grab(flag){
+    let indexAfterFlag = process.argv.indexOf(flag) + 1;
+    return process.argv[indexAfterFlag]
+}
 
 /**
  * Stdin/stdout -> use this object to read and write data in terminal
@@ -70,6 +75,8 @@ process.stdin.on('data', data => {
     }
    
 })
+
+process.stdout.cursorTo(0);
 
 process.on('exit', ()=> {
     console.log('\n\nThank you for answers \n')
