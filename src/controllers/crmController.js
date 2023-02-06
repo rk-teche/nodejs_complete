@@ -34,6 +34,7 @@ export const getContact = (req, res) => {
 }
 
 export const deleteContact = (req, res) => {
+    // Contact.remove // both deleteOne and remove can be used
     Contact.deleteOne({"_id": req.params.id}, (err, contact) => {
         if(err){
             res.send(err)
