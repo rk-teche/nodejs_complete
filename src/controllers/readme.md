@@ -1,0 +1,1 @@
+# Controllers are the functions that will allow us to get information to the endpoints and forward it to whoever is calling it
