@@ -7,3 +7,18 @@
 5. Broken Access control - Restriction on what user can access is often poorly implemented and allow other users to see sensitive data
 
 * Ref: https://owasp.org/
+
+
+# CSURF
+* ref: https://github.com/expressjs/csurf
+
+* It forces a logged on victim's browser to send a forged HTTP request, which could include the victim's session to a vulnerable web     application.
+* We can add csurf protection to all your API endpoints
+
+
+# Cookie Attributes
+
+* Secure: only through HTTP
+* HttpOnly: prevents Javascript use
+* Domain: specific URL or path for access
+* ExpiryL when the cookie expires

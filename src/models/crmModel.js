@@ -1,5 +1,8 @@
 const { Schema } = require('mongoose')
 
+/**
+ * Note - Just like Mongoose is for MongoDB, sequelize is use for SQL query
+ */
 export const ContactSchema = new Schema({
     firstName: {
         type: String,

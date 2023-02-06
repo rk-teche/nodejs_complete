@@ -7,6 +7,10 @@ const Contact = model('Contact', ContactSchema)
 
 export const addNewContact = (req, res) => {
     let newContact = new Contact(req.body)
+    /**
+     * Note - before save your data, run validation first then save it
+     * Ref: https://www.npmjs.com/package/validator
+     */
     newContact.save((err, contact) => {
         if(err){
             res.send(err)

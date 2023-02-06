@@ -1,11 +1,39 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const { verify } = require('jsonwebtoken')
+const helmet = require('helmet')
 const routes = require('../src/routes/crmRoutes')
+const rateLimit = require('express-rate-limit')
+var cookieSession = require('cookie-session') // ref: https://www.npmjs.com/package/cookie-session
+var Cookies = require('cookies') // ref: https://github.com/pillarjs/cookies
 
 const app = express()
 
 
+app.use(cookieSession({
+  name: 'session',
+  keys: [/* secret keys */],
+
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
+
+
+/**
+ * It automatically adds 12 http security headers to your application
+ */
+app.use(helmet())
+
+// it prevent the DOS attack
+const limiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+})
+
+// Apply the rate limiting middleware to all requests
+app.use(limiter)
 
 // middleware
 /**
