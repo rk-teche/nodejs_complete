@@ -4,7 +4,7 @@ class ServiceRegistry {
     constructor(log){
         this.log = log
         this.services = {} // this object will have all the services
-        this.timeout = 10 // it will expire services that haven't been seen for more than 30 seconds
+        this.timeout = 30 // it will expire services that haven't been seen for more than 30 seconds
     }
 
     register(name, version, ip, port){
@@ -34,9 +34,15 @@ class ServiceRegistry {
         return candidates[Math.floor(Math.random()* candidates.length)] // return randam index
     }
 
+    getAll(){
+        return this.services
+    }
+
     unregister(name, version, ip, port){
         const key = `${name}${version}${ip}${port}`
         delete this.services[key]
+        this.log.debug(`Unregister services ${name}, version ${version} at ${ip}:${port}`)
+
         return key
     }
 

@@ -15,11 +15,11 @@ module.exports = (param) => {
       promises.push(speakers.getAllArtwork());
 
       const results = await Promise.all(promises);
-
+      
       return res.render('index', {
         page: 'Home',
-        speakerslist: results[0],
-        artwork: results[1],
+        speakerslist: results.length > 0 ? results[0] : [],
+        artwork: results.length > 0 ? results[1] : [],
       });
     } catch (err) {
       return next(err);

@@ -42,6 +42,10 @@ module.exports = (config) => {
     return res.json(svc)
   })
 
+  service.get('/services', (req, res, next) => {
+    return res.json(serviceRegistry.getAll())
+  })
+
   // eslint-disable-next-line no-unused-vars
   service.use((error, req, res, next) => {
     res.status(error.status || 500);

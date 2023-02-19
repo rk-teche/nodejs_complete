@@ -1,9 +1,21 @@
 const express = require('express');
+const { times } = require('lodash');
 
 const router = express.Router();
 
 module.exports = (param) => {
   const { speakers } = param;
+
+  router.get('/images/:type/:file', async(req, res, next) => {
+    try {
+      console.log(`${req.params.type}/${req.params.file}`)
+      const image = await speakers.getImages(`${req.params.type}/${req.params.file}`)
+
+      return image.pipe(res)
+    } catch (err) {
+      return err
+    }
+  })
 
   router.get('/', async (req, res) => {
     try {
