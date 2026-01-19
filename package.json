@@ -4,7 +4,7 @@
     "test": "jasmine"
   },
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^6.0.0",
     "body-parser": "^1.20.0",
     "cookie-session": "^2.0.0",
     "cookies": "^0.8.0",
