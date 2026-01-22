@@ -4,7 +4,7 @@
     "test": "jasmine"
   },
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^6.0.0",
     "body-parser": "^1.20.0",
     "cookie-session": "^2.0.0",
     "cookies": "^0.8.0",
@@ -13,7 +13,7 @@
     "express-rate-limit": "^6.7.0",
     "helmet": "^6.0.1",
     "jsonwebtoken": "^9.0.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "mongoose": "^6.9.0",
     "socket.io": "^4.5.1",
     "ws": "^8.12.0"
